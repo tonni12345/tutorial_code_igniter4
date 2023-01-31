@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class Penerbit extends Model
+{
+    protected $table = 'penerbit';
+
+    public $db;
+
+    public function __construct()
+    {
+        $this->db = db_connect();
+    }
+
+    public function select_all()
+    {
+        return $this->db->table($this->table)->get();
+    }
+
+    public function select_one($id)
+    {
+
+        return $this->db->table($this->table)->getWhere(['id_penerbit' => $id]);
+    }
+
+    public function insert_one($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
+
+    public function update_one($id, $data)
+    {
+        return $this->db->table($this->table)->update($data, ['id_penerbit' => $id]);
+    }
+
+    public function delete_one($id)
+    {
+        return $this->db->table($this->table)->delete(['id_penerbit' => $id]);
+    }
+
+    public function get_next_id()
+    {
+        $query = $this->db->query("SELECT MAX(id_penerbit) AS id FROM " . $this->table);
+        $id = $query->getRow()->id;
+        $id = substr($id, 2);
+        $id = (int) $id;
+        $id++;
+        $id = "SP" . $id;
+        return $id;
+    }
+}
