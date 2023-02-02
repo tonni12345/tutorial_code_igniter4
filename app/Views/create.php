@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label for="kota">Kota</label>
-                    <input type="text" class="form-control" id="kota" name="kota" placeholder="kota">
+                    <input type="text" class="form-control" id="kota" name="kota" placeholder="Kota">
                 </div>
                 <div class="form-group">
                     <label for="telepon">Telepon</label>
