@@ -89,6 +89,7 @@ class Home extends BaseController
                 'id_penerbit' => $this->modelPenerbit->get_next_id(),
                 'nama' => $this->request->getPost('nama'),
                 'alamat' => $this->request->getPost('alamat'),
+                'kota' => $this->request->getPost('kota'),
                 'telepon' => $this->request->getPost('telepon')
             );
             $this->modelPenerbit->insert_one($data);
