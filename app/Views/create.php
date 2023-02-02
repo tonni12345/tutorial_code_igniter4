@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label for="telepon">Telepon</label>
-                    <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Nomor Telepon">
+                    <input type="text" class="form-control" id="telepon" name="telepon" maxlength="20" placeholder="Nomor Telepon">
                 </div>
                 <input hidden name="penerbit" value="penerbit" />
                 <div>
