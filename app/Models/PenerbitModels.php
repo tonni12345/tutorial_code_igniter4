@@ -41,6 +41,14 @@ class Penerbit extends Model
 
     public function update_one($id, $data)
     {
+        $telepon = $this->db->escapeString($data['telepon']);
+        if (substr($telepon, 0, 2) === "08") {
+            $chunks = str_split($telepon, 4);
+            $result = implode('-', $chunks);
+            $data['telepon'] = $result;
+        } else {
+            $data['telepon'] = substr($telepon, 0, 3) . "-" . substr($telepon, 3);
+        }
         return $this->db->table($this->table)->update($data, ['id_penerbit' => $id]);
     }
 
