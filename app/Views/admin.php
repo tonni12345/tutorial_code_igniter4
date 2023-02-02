@@ -14,7 +14,7 @@
                 <h3 class="text-center"><?= $title ?></h3>
             </div>
         </div>
-        <a href="/admin/create" class="btn btn-primary">Tambah Data</a>
+        <a href="<?= base_url() ?>/admin/create" class="btn btn-primary">Tambah Data</a>
         <table class="table">
             <thead>
                 <tr>
@@ -45,7 +45,7 @@
                     </tr>
                 <?php endforeach; ?>
         </table>
-        <a href="/admin/create/penerbit" class="btn btn-primary">Tambah Data</a>
+        <a href="<?= base_url() ?>/admin/create/penerbit" class="btn btn-primary">Tambah Data</a>
         <table class="table">
             <thead>
                 <tr>
@@ -66,7 +66,7 @@
                         <td><?= $p->kota; ?></td>
                         <td><?= $p->telepon; ?></td>
                         <td>
-                            <a href="/admin/edit/<?= $p->id_penerbit; ?>" class="btn btn-warning">Edit</a>
+                            <a href="<?= base_url() ?>/admin/edit/<?= $p->id_penerbit; ?>" class="btn btn-warning">Edit</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $p->id_penerbit ?>">
                                 Delete
                             </button>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tidak</button>
-                    <a href="/admin/delete/" class="btn btn-secondary">Ya</a>
+                    <a href="<?= base_url() ?>/admin/delete/" class="btn btn-secondary">Ya</a>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
             const id = button.getAttribute('data-bs-id')
             const modalBtnSec = deleteModal.querySelector('.btn-secondary')
 
-            modalBtnSec.href = `/admin/delete/${id}`
+            modalBtnSec.href = `<?= base_url() ?>/admin/delete/${id}`
         })
     </script>
     <?php require_once APPPATH . 'Views\\Template\\footers.php'; ?>
