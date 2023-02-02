@@ -45,6 +45,11 @@
                     </tr>
                 <?php endforeach; ?>
         </table>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center"><?= $title2 ?></h3>
+            </div>
+        </div>
         <a href="<?= base_url() ?>/admin/create/penerbit" class="btn btn-primary">Tambah Data</a>
         <table class="table">
             <thead>
