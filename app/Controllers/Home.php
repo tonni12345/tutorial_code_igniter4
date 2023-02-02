@@ -36,6 +36,7 @@ class Home extends BaseController
     {
         $data = array(
             'title' => 'Daftar Buku',
+            'title2' => 'Daftar Penerbit',
             'buku' => $this->model->select_all()->getResult(),
             'penerbit' => $this->modelPenerbit->select_all()->getResult()
         );
