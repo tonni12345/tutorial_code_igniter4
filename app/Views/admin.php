@@ -36,7 +36,7 @@
                         <td><?= $b->nama_buku; ?></td>
                         <td><?= $b->harga; ?></td>
                         <td><?= $b->stok; ?></td>
-                        <td><?= $b->penerbit; ?></td>
+                        <td><?= $b->nama; ?></td>
                         <td>
                             <a href="/admin/edit/<?= $b->id_buku; ?>" class="btn btn-warning">Edit</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?= $b->id_buku ?>">

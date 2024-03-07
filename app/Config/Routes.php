@@ -31,6 +31,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->post('/search', 'Home::index');
+$routes->get('/login', 'Admin::index');
+$routes->post('/login', 'Admin::login');
+$routes->get('/logout', 'Admin::logout');
 $routes->get('/admin', 'Home::admin');
 $routes->get('/admin/delete/(:any)', 'Home::hapus/$1');
 $routes->get('/admin/edit/(:any)', 'Home::edit/$1');

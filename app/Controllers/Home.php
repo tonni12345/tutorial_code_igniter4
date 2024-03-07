@@ -34,12 +34,16 @@ class Home extends BaseController
 
     public function admin()
     {
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         $data = array(
             'title' => 'Daftar Buku',
             'title2' => 'Daftar Penerbit',
             'buku' => $this->model->select_all()->getResult(),
             'penerbit' => $this->modelPenerbit->select_all()->getResult()
         );
+
         return view('admin', $data);
     }
 
@@ -64,21 +68,27 @@ class Home extends BaseController
 
     public function tambah($jenis = 'buku')
     {
-
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         $data = array(
             'title' => 'Tambah Buku',
-            'jenis' => $jenis
+            'jenis' => $jenis,
+            'penerbit' => $this->modelPenerbit->select_all()->getResult()
         );
         return view('create', $data);
     }
 
     public function simpan()
     {
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         if (isset($_POST['buku'])) {
             $data = array(
                 'id_buku' => $this->model->get_next_id($this->request->getPost('kategori')),
                 'nama_buku' => $this->request->getPost('nama_buku'),
-                'penerbit' => $this->request->getPost('penerbit'),
+                'id_penerbit' => $this->request->getPost('id_penerbit'),
                 'stok' => $this->request->getPost('stok'),
                 'harga' => $this->request->getPost('harga'),
                 'kategori' => $this->request->getPost('kategori')
@@ -102,7 +112,9 @@ class Home extends BaseController
 
     public function edit($id)
     {
-
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         if (isset($_POST['nama_buku'])) {
             $data = array(
                 'nama_buku' => $this->request->getPost('nama_buku'),
@@ -143,6 +155,9 @@ class Home extends BaseController
 
     public function update()
     {
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         if (isset($_POST['id_buku'])) {
 
             $id = $this->request->getPost('id_buku');
@@ -172,6 +187,9 @@ class Home extends BaseController
 
     public function hapus($id)
     {
+        if (!session()->get("loginData") || session()->get("loginData")["isLoggedIn"] != true) {
+            return redirect()->to(base_url('login'));
+        }
         $this->model->delete_one($id);
         $this->modelPenerbit->delete_one($id);
 

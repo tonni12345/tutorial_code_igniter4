@@ -12,4 +12,21 @@
             </li>
         </ul>
     </div>
+    <?php if (session()->get("loginData") && session()->get('loginData')["isLoggedIn"]) : ?>
+        <div>
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url() . "/logout" ?>">LOGOUT</a>
+                </li>
+        </div>
+    <?php else : ?>
+        <div>
+            <ul class="navbar-nav
+        ">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url() . "/login" ?>">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    <?php endif; ?>
 </nav>

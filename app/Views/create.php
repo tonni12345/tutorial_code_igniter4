@@ -26,8 +26,12 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="penerbit">Penerbit</label>
-                    <input type="text" class="form-control" id="penerbit" name="penerbit" placeholder="Penerbit">
+                    <label for="id_penerbit">Penerbit</label>
+                    <select id="id_penerbit" class="form-control" name="id_penerbit">
+                        <?php foreach ($penerbit as $p) : ?>
+                            <option value="<?= $p->id_penerbit ?>"><?= $p->nama ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="stok">Stok</label>

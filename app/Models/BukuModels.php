@@ -17,7 +17,7 @@ class Buku extends Model
 
     public function select_all()
     {
-        return $this->db->table($this->table)->get();
+        return $this->db->table($this->table)->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit')->get();
     }
 
     public function select_one($id)
