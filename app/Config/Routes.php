@@ -35,6 +35,7 @@ $routes->get('/login', 'Admin::index');
 $routes->post('/login', 'Admin::login');
 $routes->get('/logout', 'Admin::logout');
 $routes->get('/admin', 'Home::admin');
+$routes->get('/admin/chart', 'Home::chart');
 $routes->get('/admin/delete/(:any)', 'Home::hapus/$1');
 $routes->get('/admin/edit/(:any)', 'Home::edit/$1');
 $routes->post('/admin/edit/(:any)', 'Home::edit/$1');

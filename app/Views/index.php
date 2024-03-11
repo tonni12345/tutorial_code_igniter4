@@ -47,7 +47,7 @@
                         <td><?= $b->nama_buku; ?></td>
                         <td><?= $b->harga; ?></td>
                         <td><?= $b->stok; ?></td>
-                        <td><?= $b->penerbit; ?></td>
+                        <td><?= $b->nama; ?></td>
                     </tr>
                 <?php endforeach; ?>
         </table>

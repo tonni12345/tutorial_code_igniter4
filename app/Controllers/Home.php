@@ -47,6 +47,15 @@ class Home extends BaseController
         return view('admin', $data);
     }
 
+    public function chart()
+    {
+        $data = array(
+            'title' => 'Chart',
+            'penerbit' => $this->modelPenerbit->get_chart_data()
+        );
+        return view('chart', $data);
+    }
+
     public function pengadaan()
     {
         $data = array(

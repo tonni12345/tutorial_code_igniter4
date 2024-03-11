@@ -67,4 +67,10 @@ class Penerbit extends Model
         $id = "SP" . $id;
         return $id;
     }
+
+    public function get_chart_data()
+    {
+        $query = $this->db->query("SELECT penerbit.nama, COUNT(buku.id_penerbit) AS jumlah FROM penerbit LEFT JOIN buku ON penerbit.id_penerbit = buku.id_penerbit GROUP BY penerbit.id_penerbit");
+        return $query->getResult();
+    }
 }
