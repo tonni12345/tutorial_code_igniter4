@@ -43,7 +43,7 @@ class Buku extends Model
 
     public function search($keyword)
     {
-        return $this->db->table($this->table)->like('nama_buku', $keyword)->get();
+        return $this->db->table($this->table)->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit')->like('nama_buku', $keyword)->get();
     }
 
     public function lowest_stock()
