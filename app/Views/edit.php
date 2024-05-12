@@ -31,7 +31,7 @@
                 </div>
                 <div>
                     <label for="penerbit">Penerbit</label>
-                    <select id="penerbit" class="form-select" name="penerbit">
+                    <select id="id_penerbit" class="form-select" name="id_penerbit">
                         <option>Pilih Penerbit</option>
                         <?php foreach ($penerbit as $p) : ?>
                             <option value="<?= $p->id_penerbit ?>" <?php echo $buku->id_penerbit == $p->id_penerbit ?   "selected" : "" ?>><?= $p->nama ?></option>

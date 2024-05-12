@@ -127,7 +127,7 @@ class Home extends BaseController
         if (isset($_POST['nama_buku'])) {
             $data = array(
                 'nama_buku' => $this->request->getPost('nama_buku'),
-                'penerbit' => $this->request->getPost('penerbit'),
+                'id_penerbit' => $this->request->getPost('id_penerbit'),
                 'stok' => $this->request->getPost('stok'),
                 'harga' => $this->request->getPost('harga'),
             );
