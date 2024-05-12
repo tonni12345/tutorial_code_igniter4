@@ -50,7 +50,7 @@ class Buku extends Model
     {
         $lowest = $this->db->query("SELECT MIN(stok) AS stok FROM " . $this->table);
         $stok = $lowest->getRow()->stok;
-        return $this->db->table($this->table)->select("nama_buku, penerbit")->getWhere(['stok' => $stok]);
+        return $this->db->table($this->table)->select("nama_buku, buku.id_penerbit, penerbit.nama")->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit')->getWhere(['stok' => $stok]);
     }
 
     public function get_next_id($kategori)

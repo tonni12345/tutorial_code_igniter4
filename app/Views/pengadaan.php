@@ -28,7 +28,7 @@
                     <tr>
                         <th scope="row"><?= $i++; ?></td>
                         <td><?= $b->nama_buku; ?></td>
-                        <td><?= $b->penerbit; ?></td>
+                        <td><?= $b->nama; ?></td>
                     </tr>
                 <?php endforeach; ?>
         </table>
