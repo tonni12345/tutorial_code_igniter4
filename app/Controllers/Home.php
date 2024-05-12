@@ -135,11 +135,11 @@ class Home extends BaseController
             $this->model->update_one($id_buku, $data);
             return redirect()->to(base_url('admin'));
         } else if (substr($id, 0, 2) !== "SP") {
-
             $data = array(
                 'title' => 'Edit Buku',
                 'buku' => $this->model->select_one($id)->getRow(),
-                'jenis' => "Buku"
+                'jenis' => "Buku",
+                'penerbit' => $this->modelPenerbit->select_all()->getResult()
             );
             return view('edit', $data);
         } else if (isset($_POST['nama'])) {

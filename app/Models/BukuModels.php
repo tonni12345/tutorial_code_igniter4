@@ -23,7 +23,7 @@ class Buku extends Model
     public function select_one($id)
     {
 
-        return $this->db->table($this->table)->getWhere(['id_buku' => $id]);
+        return $this->db->table($this->table)->join('penerbit', 'penerbit.id_penerbit = buku.id_penerbit')->getWhere(['id_buku' => $id]);
     }
 
     public function insert_one($data)

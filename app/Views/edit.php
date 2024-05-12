@@ -29,9 +29,14 @@
 
                     </select>
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="penerbit">Penerbit</label>
-                    <input type="text" class="form-control" id="penerbit" name="penerbit" value="<?= $buku->penerbit ?>">
+                    <select id="penerbit" class="form-select" name="penerbit">
+                        <option>Pilih Penerbit</option>
+                        <?php foreach ($penerbit as $p) : ?>
+                            <option value="<?= $p->id_penerbit ?>" <?php echo $buku->id_penerbit == $p->id_penerbit ?   "selected" : "" ?>><?= $p->nama ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="stok">Stok</label>

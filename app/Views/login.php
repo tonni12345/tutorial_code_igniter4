@@ -13,7 +13,7 @@
                     </div>
                 <?php endif; ?>
                 <h2>Login</h2>
-                <form action="/login" method="POST">
+                <form action="<?= base_url() ?>/login" method="POST">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" name="username" id="username" class="form-control" required>
