@@ -204,4 +204,31 @@ class Home extends BaseController
 
         return redirect()->to(base_url('admin'));
     }
+
+    public function export()
+{
+    $buku = $this->model->select_all()->getResult();
+    
+    // Set the headers to force download
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="buku_export.csv"');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    // Create a file pointer connected to the output stream
+    $output = fopen('php://output', 'write');
+
+    // Output the column headings
+    fputcsv($output, ['No', 'Kategori', 'Nama Buku', 'Harga', 'Stok', 'Penerbit']);
+
+    // Output each row of the data
+    $i = 1;
+    foreach ($buku as $cihuy) {
+        fputcsv($output, [$i++, $cihuy->kategori, $cihuy->nama_buku, $cihuy->harga, $cihuy->stok, $cihuy->nama]);
+    }
+
+    fclose($output);
+    exit();
+}
+
 }

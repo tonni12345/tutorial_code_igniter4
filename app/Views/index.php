@@ -15,18 +15,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                <form action="<?= base_url() . "/search" ?>" method="post">
-                    <div class="form-group">
-                        <label for="query_buku">Cari berdasarkan Nama Buku</label>
-                        <input type="text" class="form-control" id="query_buku" name="query_buku" placeholder="Nama Buku" value="<?php echo isset($query)  ? $query : "" ?>">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Cari</button>
-                    <a class="btn btn-secondary" href="<?= base_url() ?>">Reset</a>
-
-                </form>
+    <div class="col-md-12">
+        <form action="<?= base_url() . "/search" ?>" method="post">
+            <div class="form-group">
+                <label for="query_buku">Cari berdasarkan Nama Buku</label>
+                <input type="text" class="form-control" id="query_buku" name="query_buku" placeholder="Nama Buku" value="<?php echo isset($query) ? $query : "" ?>">
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+            <a class="btn btn-secondary" href="<?= base_url() ?>">Reset</a>
+            <a href="<?= base_url('export') ?>" class="btn btn-success">Ekspor CSV</a>
+        </form>
+    </div>
+</div>
+
         <table class="table" id="table-buku">
             <thead>
                 <tr>
